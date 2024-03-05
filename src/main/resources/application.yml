@@ -1,3 +1,29 @@
 
+spring:
+  profiles:
+    active: local
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - local
+  data:
+    mongodb:
+      uri: mongodb+srv://ukpawanbhatt:prLhoI0zXHIzWnAF@cluster0.vezcxxn.mongodb.net/
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - dev
+  data:
+    mongodb:
+      host:
+      port:
+      database:
+      uri: mongodb+srv://ukpawanbhatt:prLhoI0zXHIzWnAF@cluster0.vezcxxn.mongodb.net/
+
 server:
   port: 8081
+
