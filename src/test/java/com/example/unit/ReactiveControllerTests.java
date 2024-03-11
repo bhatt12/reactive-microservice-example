@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWeb
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.test.StepVerifier;
-import reactor.test.StepVerifierOptions;
 
 @WebFluxTest(controllers = ReactiveController.class)
 @AutoConfigureWebTestClient

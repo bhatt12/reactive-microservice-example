@@ -1,7 +1,7 @@
 
 spring:
   profiles:
-    active: local
+    active: dev
 ---
 spring:
   config:
@@ -19,10 +19,9 @@ spring:
         - dev
   data:
     mongodb:
-      host:
-      port:
-      database:
+      database: pawan-test
       uri: mongodb+srv://ukpawanbhatt:prLhoI0zXHIzWnAF@cluster0.vezcxxn.mongodb.net/
+      auto-index-creation: true
 
 server:
   port: 8081
