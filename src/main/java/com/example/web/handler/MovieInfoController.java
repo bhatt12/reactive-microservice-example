@@ -4,6 +4,7 @@ import com.example.model.MovieInfo;
 import com.example.service.MovieInfoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -32,8 +33,11 @@ public class MovieInfoController {
 
     @GetMapping("/movieinfo/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Mono<MovieInfo> getMovieById(@PathVariable String id){
-        return movieInfoService.getMovieById(id);
+    public Mono<ResponseEntity<MovieInfo>> getMovieById(@PathVariable String id){
+        return movieInfoService.getMovieById(id)
+                .map(ResponseEntity.ok()::body)
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()))
+                .log();
     }
 
     @PutMapping("/movieinfo/{id}")

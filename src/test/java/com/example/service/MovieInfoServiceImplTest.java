@@ -63,7 +63,7 @@ class MovieInfoServiceImplTest {
     @Test
     void addMovieInfoService() {
 
-        var movie = new MovieInfo("133", "", 2020,
+        var movie = new MovieInfo("133", "Movie1", 2020,
                 List.of("Benedict Cumberbatch", "Rachel McAdams"), LocalDate.parse("2020-08-01"));
 
         when(movieInfoService.addMovieInfoService(movie)).thenReturn(Mono.just(movie));
